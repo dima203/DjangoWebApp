@@ -1,5 +1,7 @@
 {% extends "main/base.html" %}
 
+{% block title %}Login{% endblock %}
+
 {% block content %}
 
 <form method="post" action="{% url 'login' %}">
@@ -7,15 +9,15 @@
   <div class="table_header"><h3>Login</h3></div>
 
   {% if form.errors %}
-    <p>Your username and password didn't match. Please try again.</p>
+    <p class="error">Your username and password didn't match. Please try again.</p>
   {% endif %}
 
   {% if next %}
     {% if user.is_authenticated %}
-      <p>Your account doesn't have access to this page. To proceed,
+      <p class="error">Your account doesn't have access to this page. To proceed,
       please login with an account that has access.</p>
     {% else %}
-      <p>Please login to see this page.</p>
+      <p class="error">Please login to see this page.</p>
     {% endif %}
   {% endif %}
 
