@@ -7,8 +7,30 @@ body {
 .main_box {
     margin: 0;
     background: linear-gradient(to bottom right, rgba(0, 255, 153, 1), rgba(0, 153, 153, 1));
+    background-size: 300% 300%;
     display: flex;
     min-height: 100vh;
+    -webkit-animation: AnimationName 10s ease infinite;
+    -moz-animation: AnimationName 10s ease infinite;
+    animation: AnimationName 10s ease infinite;
+}
+
+@-webkit-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+@-moz-keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+
+@keyframes AnimationName {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
 }
 
 h1 {
@@ -112,7 +134,7 @@ h1 {
 }
 
 .spacer {
-    width: 5%;
+    width: 10%;
 }
 
 .content_box {
@@ -120,7 +142,7 @@ h1 {
     border-left: 3px solid #00CC99;
     border-right: 3px solid #00CC99;
     padding: 10px;
-    width: 90%;
+    width: 80%;
 }
 
 form {
@@ -135,6 +157,7 @@ form {
 }
 
 .error {
+    text-align: center;
     font-size: 26px;
     color: #ff3434;
     margin: 1%;
