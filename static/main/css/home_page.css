@@ -69,7 +69,8 @@ h1 {
 .nav_box a {
     width: 100%;
     text-decoration: none;
-    margin: auto;
+    height: 100%;
+    padding-top: 25%
 }
 
 .nav_box:hover {
