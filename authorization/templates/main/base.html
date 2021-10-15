@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'main/css/home_page.css' %}">
+    <title>Home</title>
+</head>
+<body>
+    <menu class="nav_menu">
+        <div class="header_block">
+            <a href="{% url 'home' %}"><h1>Title</h1></a>
+        </div>
+        <div class="nav_block">
+            <ul class="nav">
+                <li class="nav_box"><a href="{% url 'home' %}"><h4 class="text">Home</h4></a></li>
+                <li class="nav_box"><a href="{% url 'articles' %}"><h4 class="text">Articles</h4></a></li>
+                <li class="nav_box"><a href="{% url 'about' %}"><h4 class="text">About</h4></a></li>
+            </ul>
+            <div class="user_block">
+                {% if user.is_authenticated %}
+                    <p><a href="{% url 'user_page' user.id %}">{{ user.username }}</a></p>
+                    <p><a href="{% url 'logout' %}">Log out</a></p>
+                {% else %}
+                    <p>You are not logged in.</p>
+                    <a href="{% url 'login' %}">Log In</a>
+                {% endif %}
+            </div>
+        </div>
+    </menu>
+    <div class="main_box">
+        <div class="spacer"></div>
+        <div class="content_box">
+            {% block content %}
+            {% endblock %}
+        </div>
+        <div class="spacer"></div>
+    </div>
+</body>
+</html>

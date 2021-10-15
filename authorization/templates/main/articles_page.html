@@ -1,0 +1,11 @@
+{% extends "main/base.html" %}
+
+{% block content %}
+  {% if user.is_authenticated %}
+    <h1>Articles</h1>
+    <h2>All articles are located here.</h2>
+  {% else %}
+    <h1>You are not authenticated</h1>
+    <h2>Please, <a class="auth_url" href="{% url 'registration' %}">create new account</a> or <a class="auth_url" href="{% url 'login' %}">log in</a>.</h2>
+  {% endif %}
+{% endblock %}
