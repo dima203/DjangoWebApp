@@ -49,14 +49,14 @@ h1 {
     padding: 0;
     list-style: none;
     display: flex;
-    width: 90%;
+    width: 80%;
     height: 100%;
     justify-content: start;
     align-items: stretch;
 }
 
 .nav_box {
-    width: 7%;
+    width: 10%;
     margin-right: 0.3%;
     margin-left: 0.3%;
     background-color: #000000;
@@ -94,7 +94,7 @@ h1 {
 }
 
 .user_block {
-    width: 150px;
+    width: 20%;
     display: flex;
     flex-direction: column;
 }
