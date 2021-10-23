@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView, FormView
+from django.views.generic import DetailView, FormView, ListView
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
 from .forms import UserRegistrationForm
+from .models import Article
 
 
 class UserDetailsView(DetailView):
@@ -20,6 +21,11 @@ def about_page(request):
     return render(request, 'main/about_page.html')
 
 
+class ArticlesPage(ListView):
+    model = Article
+    template_name = 'main/articles_page.html'
+
+
 def articles_page(request):
     return render(request, 'main/articles_page.html')
 
@@ -35,23 +41,3 @@ class RegistrationForm(FormView):
             context['message'] = self.get_form().errors[error_key][0]
             break
         return context
-
-
-'''def registration_page(request):
-    message = ''
-
-    if request.method == 'POST':
-        form = UserRegistrationForm(request.POST)
-        if form.is_valid():
-            form.save()
-            return redirect('home')
-        else:
-            message = 'Wrong form!'
-
-    form = UserRegistrationForm()
-
-    data = {
-        'form': form,
-        'message': message,
-    }
-    return render(request, 'registration/registration.html', data)'''
