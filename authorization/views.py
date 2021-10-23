@@ -24,6 +24,7 @@ def about_page(request):
 class ArticlesPage(ListView):
     model = Article
     template_name = 'main/articles_page.html'
+    context_object_name = 'articles'
 
 
 def articles_page(request):

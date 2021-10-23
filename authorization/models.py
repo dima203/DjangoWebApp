@@ -1,10 +1,10 @@
 from django.db import models
 
 
-class Article:
+class Article(models.Model):
     title = models.CharField(max_length=256)
     content = models.TextField()
-    date_created = models.DateTimeField(auto_now_add=True)
+    date_created = models.DateTimeField()
     author = models.CharField(max_length=256)
 
     class Meta:
