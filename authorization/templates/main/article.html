@@ -1,0 +1,28 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'main/css/article_style.css' %}">
+{% endblock %}
+
+
+{% block title %}{{ article.title }}{% endblock %}
+
+{% block content %}
+    <h1>{{ article.title }}</h1>
+    {% autoescape off %}
+    {{ article.content }}
+    {% endautoescape %}
+    <p id="date_created"><b>{{ article.date_created }}</b></p>
+
+    {% if user.is_superuser %}
+    <div class="buttons">
+        <div class="button-wrapper">
+            <a class="button" href="{% url 'article_update' article.id %}"><h4 class="button-text">Update article</h4></a>
+        </div>
+        <div class="button-wrapper">
+            <a class="button" href="{% url 'article_delete' article.id %}"><h4 class="button-text">Delete article</h4></a>
+        </div>
+    </div>
+    {% endif %}
+{% endblock %}

@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
-from django.views.generic import DetailView, FormView, ListView
+from django.views.generic import DetailView, CreateView, ListView, UpdateView, DeleteView
 from django.contrib.auth.models import User
 from django.urls import reverse_lazy
-from .forms import UserRegistrationForm
+from .forms import UserRegistrationForm, ArticlesCreateFrom
 from .models import Article
 
 
@@ -25,13 +25,17 @@ class ArticlesPage(ListView):
     model = Article
     template_name = 'main/articles_page.html'
     context_object_name = 'articles'
+    paginate_by = 10
+
+    def get_queryset(self):
+        return self.model.objects.order_by('date_created')[::-1]
 
 
 def articles_page(request):
     return render(request, 'main/articles_page.html')
 
 
-class RegistrationForm(FormView):
+class RegistrationForm(CreateView):
     form_class = UserRegistrationForm
     template_name = 'registration/registration.html'
     success_url = reverse_lazy('home')
@@ -42,3 +46,30 @@ class RegistrationForm(FormView):
             context['message'] = self.get_form().errors[error_key][0]
             break
         return context
+
+
+class ArticleCreateFormView(CreateView):
+    form_class = ArticlesCreateFrom
+    template_name = 'main/article_creation.html'
+    success_url = reverse_lazy('articles')
+
+
+class ArticleDetailsView(DetailView):
+    model = Article
+    template_name = 'main/article.html'
+    pk_url_kwarg = 'article_id'
+    context_object_name = 'article'
+
+
+class ArticleUpdate(UpdateView):
+    model = Article
+    form_class = ArticlesCreateFrom
+    template_name = 'main/article_update.html'
+    pk_url_kwarg = 'article_id'
+
+
+class ArticleDelete(DeleteView):
+    model = Article
+    template_name = 'main/article_delete.html'
+    pk_url_kwarg = 'article_id'
+    success_url = reverse_lazy('articles')

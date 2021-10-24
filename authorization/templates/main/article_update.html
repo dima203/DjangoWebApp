@@ -1,0 +1,42 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
+{% endblock %}
+
+{% block title %}Article update{% endblock %}
+
+{% block content %}
+  {% if user.is_superuser %}
+    <form method="post" action="{% url 'article_update' article.id %}">
+      {% csrf_token %}
+      <div class="table_header"><h3>Article update</h3></div>
+
+      {% if message %}
+          <p class="error">{{ message }}</p>
+      {% endif %}
+
+      <table>
+          <tr>
+            <td class="input-label">{{ form.title.label_tag }}</td>
+            <td>{{ form.title }}</td>
+          </tr>
+
+          <tr>
+            <td class="input-label">{{ form.content.label_tag }}</td>
+            <td>{{ form.content }}</td>
+          </tr>
+
+          <tr>
+            <td class="input-label">{{ form.author.label_tag }}</td>
+            <td>{{ form.author }}</td>
+          </tr>
+      </table>
+      <input class="button" type="submit" value="update article" />
+    </form>
+  {% else %}
+    <h1>You are not authenticated</h1>
+    <h2>Please, <a class="auth_url" href="{% url 'login' %}">login as admin</a>.</h2>
+  {% endif %}
+{% endblock %}

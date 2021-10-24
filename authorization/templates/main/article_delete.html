@@ -1,0 +1,21 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
+{% endblock %}
+
+{% block title %}Article delete{% endblock %}
+
+{% block content %}
+  {% if user.is_superuser %}
+    <form method="post" action="{% url 'article_delete' article.id %}">
+      {% csrf_token %}
+      <div class="table_header"><h3>Article delete</h3></div>
+      <input class="button" type="submit" value="delete article" />
+    </form>
+  {% else %}
+    <h1>You are not authenticated</h1>
+    <h2>Please, <a class="auth_url" href="{% url 'login' %}">login as admin</a>.</h2>
+  {% endif %}
+{% endblock %}

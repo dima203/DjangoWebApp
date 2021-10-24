@@ -2,13 +2,19 @@ from django.db import models
 
 
 class Article(models.Model):
-    title = models.CharField(max_length=256)
-    content = models.TextField()
-    date_created = models.DateTimeField()
-    author = models.CharField(max_length=256)
+    title = models.CharField(max_length=256, verbose_name='Заголовок')
+    content = models.TextField(verbose_name='Текст статьи')
+    date_created = models.DateTimeField(auto_now_add=True, verbose_name='Дата и время публикации')
+    author = models.CharField(max_length=256, verbose_name='Автор')
 
     class Meta:
         ordering = ['date_created']
 
+    def get_absolute_url(self):
+        return f"/articles/{self.id}"
+
     def __unicode__(self):
+        return self.title
+
+    def __str__(self):
         return self.title

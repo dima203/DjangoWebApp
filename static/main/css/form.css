@@ -1,0 +1,58 @@
+form {
+    background-color: #CCCCCC;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 30%;
+    margin-left: 30%;
+    height: 50vh;
+    border-radius: 15px 15px 0px 0px;
+}
+
+.error {
+    text-align: center;
+    font-size: 20px;
+    color: #ff3434;
+    margin: 1%;
+}
+
+form table {
+    border-spacing: 7px 5px;
+    height: 50%;
+}
+
+.input-label {
+    text-align: right;
+}
+
+.button {
+    margin-top: 5%;
+    width: 40%;
+    height: 50px;
+    background-color: #000000;
+    border: 0;
+    border-radius: 7px;
+    color: #00FF99;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.button:hover {
+   background-color: #666666;
+   color: #00CC99;
+}
+
+.table_header {
+    width: 100%;
+    text-align: center;
+    background-color: #00FF99;
+    border-bottom: 0px solid #000000;
+    border-radius: 15px 15px 0px 0px;
+}
+
+#lost-password a {
+    text-decoration: none;
+    font-size: 20px;
+    color: #00CC99;
+}

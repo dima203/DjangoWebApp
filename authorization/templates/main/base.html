@@ -3,7 +3,11 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{% static 'main/css/home_page.css' %}">
+    {% block links %}
+    {% endblock %}
+    <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/background.css' %}">
+    <link rel="stylesheet" href="{% static 'main/css/menu.css' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
