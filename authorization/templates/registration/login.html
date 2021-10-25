@@ -14,7 +14,9 @@
   <div class="table_header"><h3>Login</h3></div>
 
   {% if form.errors %}
-    <p class="error">Your username and password didn't match. Please try again.</p>
+    {% for error in form.errors.values %}
+      <p class="error">{{ error.0 }}</p>
+    {% endfor %}
   {% endif %}
 
   {% if next %}

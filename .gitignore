@@ -3,4 +3,3 @@ __pycache__/
 db.sqlite3
 *.db
 /webapp_cache/
-/authorization/migrations/
