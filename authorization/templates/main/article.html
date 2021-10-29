@@ -10,11 +10,11 @@
 
 {% block content %}
     <h1>{{ article.title }}</h1>
-    <br>
+    <hr size="5">
     {% autoescape off %}
     {{ article.content }}
     {% endautoescape %}
-    <br>
+    <hr size="5">
     <div class="flex-container flex-justify-space-between half-width-center no-margin">
         <p id="author"><b>{{ article.author }}</b></p>
         <p id="date_created"><b>{{ article.date_created }}</b></p>
