@@ -129,6 +129,11 @@
     justify-content: space-evenly;
 }
 
+#author {
+    font-size 20px;
+    text-align: left;
+}
+
 #date_created {
     font-size: 20px;
     text-align: right;

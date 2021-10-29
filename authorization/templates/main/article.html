@@ -13,7 +13,10 @@
     {% autoescape off %}
     {{ article.content }}
     {% endautoescape %}
-    <p id="date_created"><b>{{ article.date_created }}</b></p>
+    <div class="flex-container flex-justify-center half-width-center no-margin">
+        <p id="author">{{ article.author }}</p>
+        <p id="date_created"><b>{{ article.date_created }}</b></p>
+    </div>
 
     {% if user.is_superuser %}
     <div class="buttons">
