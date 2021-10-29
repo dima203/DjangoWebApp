@@ -39,15 +39,64 @@
 }
 
 .centered {
-    align: center;
+    text-align: center;
 }
 
 .right {
-    align: right;
+    text-align: right;
+}
+
+.left {
+    text-align: left;
+}
+
+.half-width {
+    width: 50%;
+    min-width: 500px;
 }
 
 .flex-container {
     display: flex;
+}
+
+.flex-direction-row {
+    flex-direction: row;
+}
+
+.flex-direction-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.flex-direction-column {
+    flex-direction: column;
+}
+
+.flex-direction-column-reverse {
+    flex-direction: column-reverse;
+}
+
+.flex-justify-start {
+    justify-content: flex-start;
+}
+
+.flex-justify-end {
+    justify-content: flex-end;
+}
+
+.flex-justify-center {
+    justify-content: center;
+}
+
+.flex-justify-space-between {
+    justify-content: space-between;
+}
+
+.flex-justify-space-around {
+    justify-content: space-around;
+}
+
+.flex-justify-space-evenly {
+    justify-content: space-evenly;
 }
 
 #date_created {
