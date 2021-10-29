@@ -50,6 +50,10 @@
     text-align: left;
 }
 
+.no-margin {
+    margin: 0;
+}
+
 .half-width {
     width: 50%;
     min-width: 500px;
