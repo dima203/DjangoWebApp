@@ -54,7 +54,33 @@
     margin: 0;
 }
 
-.half-width {
+.half-width-left {
+    width: 50%;
+    min-width: 500px;
+}
+
+.half-width-center {
+    width: 50%;
+    min-width: 500px;
+    margin-left: 15%;
+}
+
+@media screen and (min-width: 1200px) {
+    .half-width-center {
+        margin-left: 25%;
+        width: 50%;
+        min-width: 500px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .half-width-center {
+        margin-left: 100px;
+        width: 500px;
+    }
+}
+
+.half-width-right {
     width: 50%;
     min-width: 500px;
 }
