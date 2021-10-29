@@ -39,7 +39,15 @@
 }
 
 .centered {
-    text-align: center;
+    align: center;
+}
+
+.right {
+    align: right;
+}
+
+.flex-container {
+    display: flex;
 }
 
 #date_created {
