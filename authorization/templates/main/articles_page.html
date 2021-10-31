@@ -25,7 +25,7 @@
     {% endfor %}
   {% else %}
     <h1>You are not authenticated</h1>
-    <h2>Please, <a class="auth_url" href="{% url 'registration' %}">create new account</a> or <a class="auth_url" href="{% url 'login' %}">log in</a>.</h2>
+    <h4>Please, <a class="auth_url" href="{% url 'registration' %}">create new account</a> or <a class="auth_url" href="{% url 'login' %}">log in</a>.</h4>
   {% endif %}
 
   {% if page_obj.has_other_pages %}
