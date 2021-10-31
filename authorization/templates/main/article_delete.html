@@ -1,5 +1,6 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load material_form %}
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
@@ -12,7 +13,11 @@
     <form method="post" action="{% url 'article_delete' article.id %}">
       {% csrf_token %}
       <div class="table_header"><h3>Article delete</h3></div>
-      <input class="button" type="submit" value="delete article" />
+      {% form %}
+      {% endform %}
+      <div class="button-box">
+        <button class="btn" type="submit">Delete article</button>
+      </div>
     </form>
   {% else %}
     <h1>You are not authenticated</h1>

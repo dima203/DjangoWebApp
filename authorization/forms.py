@@ -5,9 +5,14 @@ from django.forms import TextInput
 
 from .models import Article
 
+from material import *
+
 
 class UserRegistrationForm(UserCreationForm):
-    email = forms.EmailField(label='E-mail', widget=forms.EmailInput(attrs={'class': 'form-input'}))
+    email = forms.EmailField(label='E-mail')
+
+    layout = Layout('username', 'email',
+                    Row('password1', 'password2'))
 
     def clean_email(self):
         data = self.cleaned_data['email']

@@ -34,6 +34,7 @@ ALLOWED_HOSTS = ['floating-escarpment-91953.herokuapp.com', '127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
+    'material',
     'corsheaders',
     'authorization.apps.AuthorisationConfig',
     'django.contrib.admin',
@@ -61,7 +62,9 @@ ROOT_URLCONF = 'webapp.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates')
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

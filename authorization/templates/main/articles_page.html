@@ -11,8 +11,8 @@
   {% if user.is_authenticated %}
     <h1>Articles</h1>
     {% if user.is_superuser %}
-      <div class="button-wrapper">
-        <a class="button" href="{% url 'article_create' %}"><h4 class="button-text">Create article</h4></a>
+      <div class="button-box">
+        <a class="btn" href="{% url 'article_create' %}">Create article</a>
       </div>
     {% endif %}
     {% for article in articles %}

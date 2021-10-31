@@ -1,5 +1,6 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load material_form %}
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
@@ -17,23 +18,16 @@
           <p class="error">{{ message }}</p>
       {% endif %}
 
-      <table>
-          <tr>
-            <td class="input-label">{{ form.title.label_tag }}</td>
-            <td>{{ form.title }}</td>
-          </tr>
-
-          <tr>
-            <td class="input-label">{{ form.content.label_tag }}</td>
-            <td>{{ form.content }}</td>
-          </tr>
-
-          <tr>
-            <td class="input-label">{{ form.author.label_tag }}</td>
-            <td>{{ form.author }}</td>
-          </tr>
-      </table>
-      <input class="button" type="submit" value="update article" />
+        <div class="table">
+            {% form %}
+            {% part form.title prefix %}<i class="material-icons prefix">title</i>{% endpart %}
+            {% part form.content prefix %}<i class="material-icons prefix">edit</i>{% endpart %}
+            {% part form.author prefix %}<i class="material-icons prefix">account_circle</i>{% endpart %}
+            {% endform %}
+        </div>
+        <div class="button-box">
+            <button class="btn" type="submit">Update article</button>
+        </div>
     </form>
   {% else %}
     <h1>You are not authenticated</h1>

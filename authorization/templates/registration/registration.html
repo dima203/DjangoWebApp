@@ -1,5 +1,6 @@
 {% extends "main/base.html" %}
 {% load static %}
+{% load material_form %}
 
 {% block links %}
     <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
@@ -17,28 +18,19 @@
         <p class="error">{{ message }}</p>
     {% endif %}
 
-    <table>
-        <tr>
-          <td class="input-label">{{ form.username.label_tag }}</td>
-          <td>{{ form.username }}</td>
-        </tr>
+    <div class="table">
+    {% form %}
 
-        <tr>
-          <td class="input-label">{{ form.email.label_tag }}</td>
-          <td>{{ form.email }}</td>
-        </tr>
+        {% part form.username prefix %}<i class="material-icons prefix">account_circle</i>{% endpart %}
+        {% part form.email prefix %}<i class="material-icons prefix">email</i>{% endpart %}
+        {% part form.password1 prefix %}<i class="material-icons prefix">lock_open</i>{% endpart %}
+        {% part form.password2 prefix %}<i class="material-icons prefix">lock_open</i>{% endpart %}
 
-        <tr>
-          <td class="input-label">{{ form.password1.label_tag }}</td>
-          <td>{{ form.password1 }}</td>
-        </tr>
-
-        <tr>
-          <td class="input-label">{{ form.password2.label_tag }}</td>
-          <td>{{ form.password2 }}</td>
-        </tr>
-    </table>
-    <input class="button" type="submit" value="registration" />
+    {% endform %}
+    </div>
+    <div class="button-box">
+        <button class="btn" type="submit">registration</button>
+    </div>
 </form>
 
 {% endblock %}

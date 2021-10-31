@@ -10,7 +10,7 @@
 {% block content %}
     <h1>User {{ user.username }}</h1>
     <h2>E-mail: {{ user.email }}</h2>
-    <div class="button-wrapper">
-        <a class="button" href="{% url 'password_change' %}"><h4 class="button-text">Change password</h4></a>
+    <div class="button-box">
+        <a class="btn" href="{% url 'article_create' %}">Change password</a>
     </div>
 {% endblock %}

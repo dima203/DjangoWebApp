@@ -22,12 +22,8 @@
 
     {% if user.is_superuser %}
     <div class="buttons">
-        <div class="button-wrapper">
-            <a class="button" href="{% url 'article_update' article.id %}"><h4 class="button-text">Update article</h4></a>
-        </div>
-        <div class="button-wrapper">
-            <a class="button" href="{% url 'article_delete' article.id %}"><h4 class="button-text">Delete article</h4></a>
-        </div>
+        <a class="btn" href="{% url 'article_update' article.id %}">Update article</a>
+        <a class="btn" href="{% url 'article_delete' article.id %}">Delete article</a>
     </div>
     {% endif %}
 {% endblock %}

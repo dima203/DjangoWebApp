@@ -1,14 +1,11 @@
 form {
     background-color: #CCCCCC;
-    display: flex;
     align-items: center;
     flex-direction: column;
-    height: 50vh;
-    min-height: 400px;
-    max-height: 500px;
     margin-left: 15%;
     margin-right: 15%;
     border-radius: 15px 15px 0px 0px;
+    padding-bottom: 5px;
 }
 
 @media screen and (min-width: 1200px) {
@@ -26,38 +23,9 @@ form {
     }
 }
 
-.error {
-    text-align: center;
-    font-size: 20px;
-    color: #ff3434;
-    margin: 1%;
-}
-
-form table {
-    border-spacing: 7px 5px;
-    height: 50%;
-}
-
-.input-label {
-    text-align: right;
-}
-
-.button {
-    margin-top: 5%;
-    width: 40%;
-    height: 50px;
-    background-color: #000000;
-    border: 0;
-    border-radius: 7px;
-    color: #00FF99;
-    font-size: 18px;
-    transition: all 0.3s ease;
-    text-decoration: none;
-}
-
-.button:hover {
-   background-color: #666666;
-   color: #00CC99;
+.table {
+    padding-left: 3%;
+    padding-right: 3%;
 }
 
 .table_header {
