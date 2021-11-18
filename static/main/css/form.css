@@ -36,8 +36,15 @@ form {
     border-radius: 15px 15px 0px 0px;
 }
 
+#lost-password {
+    display: flex;
+    align-items: center;
+}
+
 #lost-password a {
+    width: 100%;
     text-decoration: none;
     font-size: 20px;
     color: #00CC99;
+    text-align: center;
 }
