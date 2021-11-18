@@ -2,7 +2,7 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: gunicorn hello_django.wsgi:application --bind 0.0.0.0:$PORT
+  web: gunicorn webapp.wsgi:application --log-file - --log-level debug
 release:
   image: web
   command:
