@@ -2,78 +2,57 @@
 
 ## Contents
 
-1. [Installation](#Installation)    
-    1.1 [Linux](#InstallationLinux)    
-    1.2 [Windows](#InstallationWindows)    
+1. [Installation](#Installation)       
 2. [Cofiguration](#Configuration)   
+3. [Run Server](#RunServer)
 
 ## <a name="Installation"></a> Installation
 
 !!! You must have `Python 3.x` installed !!! 
 
-### <a name="InstallationLinux"></a> Linux
-
 1. Clone this repositories:    
 ```bash
-    git clone https://github.com/dima203/DjangoWebApp.git
+git clone https://github.com/dima203/DjangoWebApp.git
 ```
-2. Install virtual enviroment:
+2. Install Docker Compose:    
+    https://docs.docker.com/compose/install/
+
+## <a name="Configuration"></a> Configuration   
+
+1. Open project catalog:    
 ```bash
-    pip install virtualenv
+cd DjangoWebApp
 ```
-3. Create new enviroment in application catalog:
-```bash
-    cd DjangoWebApp
-    python3 -m venv env
+2. Create enviroment variables file "env_variables":      
 ```
-4. Activate enviroment:
-```bash
-    source env/bin/activate
+DJANGO_DEBUG=""
+DJANGO_SECRET_KEY="YOUR_SECRET_KEY"
 ```
-5. Install all requirements:
+3. Create project:    
 ```bash
-    pip install -r requirements.txt
+docker-compose run web django-admin startproject test
+```
+4. Delete catalog test.       
+5. Make migrations:
+```bash
+docker-compose run web python manage.py makemigrations
+```
+6. Migrate:
+```bash
+docker-compose run web python manage.py migrate
+```
+7. Create super user:    
+```bash
+docker-compose run web python manage.py createsuperuser
+```
+8. Collect staticfiles:     
+```bash
+docker-compose run web python manage.py collectstatic
 ```
 
-### <a name="InstallationWindows"></a> Windows
+## <a name="RunServer"></a> Run Server      
 
-1. Clone this repositories:    
-```cmd
-    git clone https://github.com/dima203/DjangoWebApp.git
-```
-2. Install virtual enviroment:
-```cmd
-    pip install virtualenv
-```
-3. Create new enviroment in application catalog:
-```cmd
-    cd DjangoWebApp
-    python3 -m venv env
-```
-4. Activate enviroment:
-```cmd
-    env\Scripts\activate.bat
-```
-5. Install all requirements:
-```cmd
-    pip install -r requirements.txt
-```
-
-## <a name="Configuration"></a> Configuration
-
-1. Make database migrations:    
-```
-    python manage.py makemigrations
-```
-2. Migrate:    
-```
-    python manage.py migrate
-```
-3. Create super user:    
-```
-    python manage.py createsuperuser
-```
-4. Start server:    
-```
-    python manage.py runserver
+1. Run server:      
+```bash
+docker-compose up
 ```
