@@ -1,5 +1,4 @@
 dj-database-url==0.5.0
-dj-config-url==0.1.1
 Django==3.2.8
 django-cors-headers==3.10.0
 django-material==1.9.0
