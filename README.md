@@ -41,7 +41,7 @@ docker-compose run web python manage.py makemigrations
 ```bash
 docker-compose run web python manage.py migrate
 ```
-7. Create super user:    
+7. Create superuser:    
 ```bash
 docker-compose run web python manage.py createsuperuser
 ```
