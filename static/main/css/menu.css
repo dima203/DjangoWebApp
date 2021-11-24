@@ -106,10 +106,6 @@
     -webkit-transition:all .2s linear;
 }
 
-.select_menu:hover .select_nav {
-    display: inline-block;
-}
-
 .select_menu_title {
     margin: auto;
     padding-top: 10px;
@@ -128,20 +124,40 @@
 }
 
 .select_nav {
-    display: none;
-    width: 100%;
+    width: 20%;
+    position: fixed;
+    left: -20%;
+    height: 90vh;
+    background-color: #000000;
     margin: 0;
-    transition:all .2s linear;
-    -o-transition:all .2s linear;
-    -moz-transition:all .2s linear;
-    -webkit-transition:all .2s linear;
+    transition:all .3s linear;
+    -o-transition:all .3s linear;
+    -moz-transition:all .3s linear;
+    -webkit-transition:all .3s linear;
+}
+
+.select_menu:hover .select_nav {
+    left: 0;
+}
+
+.select_nav p {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-align: center;
+}
+
+.select_nav p a {
+    text-decoration: none;
+    color: #00CC99;
+    font-size: 20px;
 }
 
 .select_nav_box {
     width: 100%;
-    height: 100%;
+    height: 10%;
     min-width: 90px;
-    padding-top: 10px;
+    padding-top: 10%;
     background-color: #000000;
     display: flex;
     align-items: center;
@@ -203,4 +219,16 @@
 .user_block a {
     text-decoration: none;
     color: #00CC99;
+}
+
+@media (min-width: 1024px) {
+    .user_block a {
+        display: block;
+    }
+}
+
+@media (max-width: 1024px) {
+    .user_block a {
+        display: none;
+    }
 }

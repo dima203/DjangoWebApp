@@ -98,11 +98,29 @@
 }
 
 #author {
-    font-size: 20px;
     text-align: left;
+    transition:all .2s linear;
+    -o-transition:all .2s linear;
+    -moz-transition:all .2s linear;
+    -webkit-transition:all .2s linear;
 }
 
 #date_created {
-    font-size: 20px;
     text-align: right;
+    transition:all .2s linear;
+    -o-transition:all .2s linear;
+    -moz-transition:all .2s linear;
+    -webkit-transition:all .2s linear;
+}
+
+@media screen and (min-width:1024px) {
+    #author, #date_created {
+        font-size: 20px;
+    }
+}
+
+@media screen and (min-width:200px) and (max-width:1024px) {
+    #author, #date_created {
+        font-size: 16px;
+    }
 }
