@@ -9,16 +9,56 @@ h1 {
 }
 
 .spacer {
-    width: 10%;
+    transition:all .2s linear;
+    -o-transition:all .2s linear;
+    -moz-transition:all .2s linear;
+    -webkit-transition:all .2s linear;
 }
 
 .content_box {
-    background-color: #FFFFFF;
-    border-left: 3px solid #00CC99;
-    border-right: 3px solid #00CC99;
-    padding: 10px;
-    width: 80%;
-    min-width: 700px;
+    transition:all .2s linear;
+    -o-transition:all .2s linear;
+    -moz-transition:all .2s linear;
+    -webkit-transition:all .2s linear;
+}
+
+@media screen and (min-width:1024px) {
+    .spacer {
+        width: 10%;
+    }
+    .content_box {
+        background-color: #FFFFFF;
+        border-left: 3px solid #00CC99;
+        border-right: 3px solid #00CC99;
+        padding: 10px;
+        width: 80%;
+        min-width: 700px;
+    }
+}
+
+@media screen and (min-height:600px) {
+    .content_box {
+        margin-top: 10vh;
+    }
+}
+
+@media screen and (max-height:600px) {
+    .content_box {
+        margin-top: 95px;
+    }
+}
+
+@media screen and (min-width:200px) and (max-width:1024px) {
+    .spacer {
+        width: 0%;
+        visibility: hidden;
+    }
+    .content_box {
+        background-color: #FFFFFF;
+        width: 100%;
+        border: 0;
+        padding: 10px;
+    }
 }
 
 .auth_url {

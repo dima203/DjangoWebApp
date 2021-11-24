@@ -16,12 +16,15 @@
       </div>
     {% endif %}
     {% for article in articles %}
-      <div class="article_short">
-        <a href="{% url 'article_page' article.id %}" class="article_link"><h2 class="article_title">{{ article.title }}</h2></a>
-        <div class="text">{% autoescape off %}{{ article.content }}{% endautoescape %}</div>
-        <div class="article-spacer"></div>
-        <p class="date">{{ article.date_created }}</p>
-      </div>
+    <a href="{% url 'article_page' article.id %}" class="article_short">
+        <div class="article_wrapper">
+          <h2 class="article_title">{{ article.title }}</h2>
+          <div class="article-spacer"></div>
+          <div class="text">{% autoescape off %}{{ article.content }}{% endautoescape %}</div>
+          <div class="article-spacer"></div>
+          <p class="date">{{ article.date_created }}</p>
+        </div>
+    </a>
     {% endfor %}
   {% else %}
     <h1>You are not authenticated</h1>
@@ -41,7 +44,9 @@
       {% endif %}
       {% for p in paginator.page_range %}
         {% if page_obj.number == p %}
-          <li class="page-num page-num-selected"><h4>{{ p }}</h4></li>
+          <li class="page-num page-num-selected">
+            <a><h4>{{ p }}</h4></a>
+          </li>
         {% elif p >= page_obj.number|add:-2 and p <= page_obj.number|add:2 %}
           <li class="page-num">
             <a href="?page={{ p }}"><h4>{{ p }}</h4></a>

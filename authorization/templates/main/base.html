@@ -27,6 +27,15 @@
                 <li class="nav_box"><a href="{% url 'articles' %}"><h4 class="text">Articles</h4></a></li>
                 <li class="nav_box"><a href="{% url 'about' %}"><h4 class="text">About</h4></a></li>
             </ul>
+            <div class="select_menu">
+                <h4 class="select_menu_title">Menu</h4>
+                <ul class="select_nav">
+                    <li class="select_nav_box"><a href="{% url 'home' %}"><h4 class="text">Home</h4></a></li>
+                    <li class="select_nav_box"><a href="{% url 'articles' %}"><h4 class="text">Articles</h4></a></li>
+                    <li class="select_nav_box"><a href="{% url 'about' %}"><h4 class="text">About</h4></a></li>
+                </ul>
+            </div>
+            <div class="nav_spacer"></div>
             <div class="user_block">
                 {% if user.is_authenticated %}
                     <p><a href="{% url 'user_page' user.id %}">{{ user.username }}</a></p>
