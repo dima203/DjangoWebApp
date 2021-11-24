@@ -1,5 +1,7 @@
 # DjangoWebApp
 
+My site link: https://floating-escarpment-91953.herokuapp.com
+
 ## Contents
 
 1. [Installation](#Installation)       
@@ -28,6 +30,9 @@ cd DjangoWebApp
 DJANGO_DEBUG=""
 DJANGO_SECRET_KEY="YOUR_SECRET_KEY"
 ```
+___     
+Note: You can generate new secret key. Create new Django project and copy generated key.    
+___     
 3. Create project:    
 ```bash
 docker-compose run web django-admin startproject test
