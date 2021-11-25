@@ -31,6 +31,7 @@
     <h4>Please, <a class="auth_url" href="{% url 'registration' %}">create new account</a> or <a class="auth_url" href="{% url 'login' %}">log in</a>.</h4>
   {% endif %}
 
+{% if user.is_authenticated %}
   {% if page_obj.has_other_pages %}
   <nav class="list-pages">
     <ul>
@@ -64,4 +65,5 @@
     </ul>
   </nav>
   {% endif %}
+{% endif %}
 {% endblock %}
