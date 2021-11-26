@@ -5,12 +5,21 @@
 }
 
 .article_short {
-    width: 80%;
+    width: 100%;
     max-width: 700px;
     display: flex;
     align-items: center;
     justify-content: space-around;
     margin-bottom: 5%;
+
+    transform: translate(0px, 120%);
+    opacity: 0;
+    transition: all 0.8s ease 0s;
+}
+
+._active .article_short {
+    transform: translate(0px, 0px);
+    opacity: 1;
 }
 
 .article_wrapper {

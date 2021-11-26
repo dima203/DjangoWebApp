@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block links %}
-    <link rel="stylesheet" href="{% static 'main/css/articles.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/articles.css' %}">
 {% endblock %}
 
 {% block title %}Articles{% endblock %}
@@ -16,15 +16,17 @@
       </div>
     {% endif %}
     {% for article in articles %}
-    <a href="{% url 'article_page' article.id %}" class="article_short">
-        <div class="article_wrapper">
-          <h2 class="article_title">{{ article.title }}</h2>
-          <div class="article-spacer"></div>
-          <div class="text">{% autoescape off %}{{ article.content }}{% endautoescape %}</div>
-          <div class="article-spacer"></div>
-          <p class="date">{{ article.date_created }}</p>
-        </div>
-    </a>
+    <div class="_anim_items _anim_no_hide" style="width: 80%; max-width: 700px; overflow: hidden;">
+      <a href="{% url 'article_page' article.id %}" class="article_short">
+          <div class="article_wrapper">
+            <h2 class="article_title">{{ article.title }}</h2>
+            <div class="article-spacer"></div>
+            <div class="text">{% autoescape off %}{{ article.content }}{% endautoescape %}</div>
+            <div class="article-spacer"></div>
+            <p class="date">{{ article.date_created }}</p>
+          </div>
+      </a>
+    </div>
     {% endfor %}
   {% else %}
     <h1>You are not authenticated</h1>

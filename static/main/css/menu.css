@@ -80,23 +80,6 @@
     height: 100%;
 }
 
-.select_menu_title {
-    margin: auto;
-    padding-top: 10px;
-    width: 100%;
-    height: 100%;
-    background-color: #000000;
-    color: #ffffff;
-    font-size: 1.7em;
-    text-align: center;
-    transition: all 0.6s ease;
-}
-
-.select_menu_title:hover {
-    background-color: #00CC99;
-    color: #000000;
-}
-
 .select_nav {
     width: 20%;
     position: fixed;
@@ -104,10 +87,10 @@
     height: 93vh;
     background-color: rgba(20, 20, 20, 0.5);
     margin: 0;
-    transition:all .3s linear;
-    -o-transition:all .3s linear;
-    -moz-transition:all .3s linear;
-    -webkit-transition:all .3s linear;
+    transition:all .5s ease;
+    -o-transition:all .5s ease;
+    -moz-transition:all .5s ease;
+    -webkit-transition:all .5s ease;
 }
 
 .select_menu:hover .select_nav {
