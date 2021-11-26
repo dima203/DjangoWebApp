@@ -1,11 +1,18 @@
 form {
-    background-color: #CCCCCC;
     align-items: center;
     flex-direction: column;
     margin-left: 15%;
     margin-right: 15%;
     border-radius: 15px 15px 0px 0px;
     padding-bottom: 5px;
+}
+
+.form-input {
+    color: #FFFFFF;
+}
+
+form input {
+    color: #FFFFFF;
 }
 
 @media screen and (min-width: 1200px) {
@@ -31,9 +38,6 @@ form {
 .table_header {
     width: 100%;
     text-align: center;
-    background-color: #00FF99;
-    border-bottom: 0px solid #000000;
-    border-radius: 15px 15px 0px 0px;
 }
 
 #lost-password {
@@ -47,4 +51,8 @@ form {
     font-size: 20px;
     color: #00CC99;
     text-align: center;
+}
+
+form .help-block {
+    color: #CCCCCC;
 }

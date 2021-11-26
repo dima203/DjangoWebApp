@@ -12,7 +12,9 @@
     <h1>{{ article.title }}</h1>
     <hr size="3" color="#009999">
     {% autoescape off %}
-    {{ article.content }}
+    <div class="content">
+        {{ article.content }}
+    </div>
     {% endautoescape %}
     <hr size="3" color="#009999">
     <div class="flex-container flex-justify-space-between half-width-center no-margin">

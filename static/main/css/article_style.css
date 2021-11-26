@@ -6,6 +6,11 @@
     justify-content: space-evenly;
 }
 
+.content {
+    padding: 2%;
+    background-color: #1b1b1b;
+}
+
 .centered {
     text-align: center;
 }
