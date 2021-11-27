@@ -28,17 +28,11 @@ class ArticlesPage(ListView):
     paginate_by = 10
     queryset = Article.objects.all()
 
-    def get_ordering(self):
-        ordering = self.request.GET.get('orderby')
-        if ordering == 'По дате (сначала старые)':
-            ordering = 'date_created'
-        elif ordering == 'По возрастанию':
-            ordering = 'title'
-        elif ordering == 'По убыванию':
-            ordering = '-title'
-        elif ordering == 'По умолчанию':
-            ordering = '-date_created'
-        return ordering
+    def get_queryset(self):
+        find = self.request.GET.get('find')
+        if find is None:
+            return self.model.objects.all()
+        return self.model.objects.filter(title__startswith=find)
 
 
 def articles_page(request):

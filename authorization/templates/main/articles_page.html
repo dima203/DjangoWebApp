@@ -16,13 +16,9 @@
       </div>
     {% endif %}
     <form action="{% url 'articles' %}" method="get" id="sortArticles">
-      <p>Сортировка:</p>
-      <div class="sort-select">
-        <input class="btn" type="submit" name="orderby" value="По умолчанию">
-        <input class="btn" type="submit" name="orderby" value="По дате (сначала старые)">
-        <input class="btn" type="submit" name="orderby" value="По возрастанию">
-        <input class="btn" type="submit" name="orderby" value="По убыванию">
-      </div>
+      <p>Название статьи:</p>
+      <input class="btn" type="text" name="find" id="find_text">
+      <input class="btn" type="submit" id="find_submit" value="find">
     </form>
     {% for article in articles %}
     <div class="_anim_items _anim_no_hide" style="width: 80%; max-width: 700px; overflow: hidden;">
