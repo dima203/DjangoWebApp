@@ -26,9 +26,19 @@ class ArticlesPage(ListView):
     template_name = 'main/articles_page.html'
     context_object_name = 'articles'
     paginate_by = 10
+    queryset = Article.objects.all()
 
-    def get_queryset(self):
-        return self.model.objects.order_by('date_created')[::-1]
+    def get_ordering(self):
+        ordering = self.request.GET.get('orderby')
+        if ordering == 'По дате (сначала старые)':
+            ordering = 'date_created'
+        elif ordering == 'По возрастанию':
+            ordering = 'title'
+        elif ordering == 'По убыванию':
+            ordering = '-title'
+        elif ordering == 'По умолчанию':
+            ordering = '-date_created'
+        return ordering
 
 
 def articles_page(request):
