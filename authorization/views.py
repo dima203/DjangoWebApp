@@ -32,7 +32,7 @@ class ArticlesPage(ListView):
         find = self.request.GET.get('find')
         if find is None:
             return self.model.objects.all()
-        return self.model.objects.filter(title__startswith=find)
+        return self.model.objects.filter(title__icontains=find)
 
 
 def articles_page(request):

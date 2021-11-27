@@ -17,7 +17,7 @@
     {% endif %}
     <form action="{% url 'articles' %}" method="get" id="sortArticles">
       <p>Название статьи:</p>
-      <input class="btn" type="text" name="find" id="find_text">
+      <input type="text" name="find" id="find_text">
       <input class="btn" type="submit" id="find_submit" value="find">
     </form>
     {% for article in articles %}

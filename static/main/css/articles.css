@@ -18,17 +18,12 @@
 }
 
 #find_text {
+    color: #FFFFFF;
     width: 50%;
 }
 
 #find_submit {
     width: 20%;
-}
-
-.sort-select input{
-    font-size: 12px;
-    width: 200px;
-    min-height: 50px;
 }
 
 .article_short {

@@ -8,7 +8,7 @@ class Article(models.Model):
     author = models.CharField(max_length=256, verbose_name='Автор')
 
     class Meta:
-        ordering = ['date_created']
+        ordering = ['-date_created']
 
     def get_absolute_url(self):
         return f"/articles/{self.id}"
