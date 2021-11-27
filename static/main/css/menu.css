@@ -10,6 +10,7 @@
     position: fixed;
     display: flex;
     flex-direction: column-reverse;
+    z-index: 99999;
 }
 
 .nav_block {
