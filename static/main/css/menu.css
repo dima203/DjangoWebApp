@@ -83,6 +83,7 @@
 
 .select_nav {
     width: 20%;
+    max-width: 300px;
     position: fixed;
     left: -20%;
     height: 93vh;
