@@ -4,7 +4,7 @@ from django.contrib.auth import views as auth_views
 from . import views
 
 urlpatterns = [
-    path('', views.home_page, name='home'),
+    path('', views.HomePage.as_view(), name='home'),
     path('user/<int:user_id>', cache_page(5 * 60)(views.UserDetailsView.as_view()), name='user_page'),
     path('accounts/', include('django.contrib.auth.urls')),
     path('accounts/registration', views.RegistrationForm.as_view(), name='registration'),

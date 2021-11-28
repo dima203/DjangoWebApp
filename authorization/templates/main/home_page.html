@@ -1,9 +1,91 @@
 {% extends "main/base.html" %}
 
+{% load static %}
+{% load material_form %}
+
+{% block links %}
+    <link rel="stylesheet" href="{% static 'main/css/form.css' %}">
+{% endblock %}
+
 {% block title %}Home{% endblock %}
 
 {% block content %}
     <h1>Home</h1>
     <h4>Home page for application.</h4>
     <h4>This page is start page. Here is nothing.</h4>
+
+
+{% endblock %}
+
+{% block popups %}
+    <div class="popup" id="login_popup">
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="" class="popup_close">X</a>
+                <form method="post" action="{% url 'login' %}">
+                  {% csrf_token %}
+
+                  <div class="table_header"><h3>Login</h3></div>
+
+                  {% if form.errors %}
+                    {% for error in form.errors.values %}
+                      <p class="error">{{ error.0 }}</p>
+                    {% endfor %}
+                  {% endif %}
+
+                  {% if next %}
+                    {% if user.is_authenticated %}
+                      <p class="error">Your account doesn't have access to this page. To proceed,
+                      please login with an account that has access.</p>
+                    {% else %}
+                      <p class="error">Please login to see this page.</p>
+                    {% endif %}
+                  {% endif %}
+
+                  <div class="table">
+                  {% form form=login_form %}
+                    {% part form.username prefix %}<i class="material-icons prefix">account_circle</i>{% endpart %}
+                    {% part form.password prefix %}<i class="material-icons prefix">lock_open</i>{% endpart %}
+                  {% endform %}
+                  </div>
+                  <div class="button-box">
+                    <button class="btn" type="submit">login</button>
+                  </div>
+                  <input type="hidden" name="next" value="{{ next }}" />
+
+                  <p id="lost-password"><a href="{% url 'password_reset' %}">Lost password?</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="popup" id="registration_popup">
+        <div class="popup_body">
+            <div class="popup_content">
+                <a href="" class="popup_close">X</a>
+                <form method="post" action="{% url 'registration' %}">
+                    {% csrf_token %}
+                    <div class="table_header"><h3>Registration</h3></div>
+
+                    {% if message %}
+                        <p class="error">{{ message }}</p>
+                    {% endif %}
+
+                    <div class="table">
+                    {% form form=registration_form %}
+
+                        {% part form.username prefix %}<i class="material-icons prefix">account_circle</i>{% endpart %}
+                        {% part form.email prefix %}<i class="material-icons prefix">email</i>{% endpart %}
+                        {% part form.password1 prefix %}<i class="material-icons prefix">lock_open</i>{% endpart %}
+                        {% part form.password2 prefix %}<i class="material-icons prefix">lock_open</i>{% endpart %}
+
+                    {% endform %}
+                    </div>
+                    <div class="button-box">
+                        <button class="btn" type="submit">registration</button>
+                    </div>
+                    <p></p>
+                </form>
+            </div>
+        </div>
+    </div>
 {% endblock %}

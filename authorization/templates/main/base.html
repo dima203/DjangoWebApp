@@ -16,8 +16,8 @@
     <link rel="stylesheet" href="{% static 'main/css/menu.css' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
-<body>
-    <div class="nav_menu">
+<body class="body">
+    <div class="nav_menu lock_padding">
         <div class="nav_block">
             <div class="select_menu">
                 <img src="{% static 'main/img/logo.png' %}">
@@ -26,8 +26,8 @@
                         {% if user.is_authenticated %}
                             <p><a href="{% url 'user_page' user.id %}">{{ user.username }}</a></p>
                         {% else %}
-                            <p><a href="{% url 'login' %}">Log In</a></p>
-                            <p><a href="{% url 'registration' %}">Registration</a></p>
+                            <p><a class="popup_link" href="#login_popup">Log In</a></p>
+                            <p><a class="popup_link" href="#registration_popup">Registration</a></p>
                         {% endif %}
                     </li>
                     <li class="select_nav_box"><a href="{% url 'home' %}"><h4 class="text">Home</h4></a></li>
@@ -52,7 +52,7 @@
                     <p><a href="{% url 'logout' %}">Log out</a></p>
                 {% else %}
                     <p>You are not logged in.</p>
-                    <p><a href="{% url 'login' %}">Log In</a> or <a href="{% url 'registration' %}">Registration</a></p>
+                    <p><a class="popup_link" href="#login_popup">Log In</a> or <a class="popup_link" href="#registration_popup">Registration</a></p>
                 {% endif %}
             </div>
         </div>
@@ -63,6 +63,9 @@
             {% endblock %}
         </div>
     </div>
+    {% block popups %}
+    {% endblock %}
     <script src="{% static 'main/js/scroll.js' %}"></script>
+    <script src="{% static 'main/js/popups.js' %}"></script>
 </body>
 </html>
