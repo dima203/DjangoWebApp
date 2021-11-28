@@ -27,6 +27,7 @@ class UserDetailsView(DetailView):
     template_name = 'main/user.html'
     pk_url_kwarg = 'user_id'
     context_object_name = 'user'
+    extra_context = extra_context
 
 
 class HomePage(TemplateView):
