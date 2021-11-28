@@ -16,9 +16,11 @@
       </div>
     {% endif %}
     <form action="{% url 'articles' %}" method="get" id="sortArticles">
-      <p>Название статьи:</p>
-      <input type="text" name="find" id="find_text">
-      <input class="btn" type="submit" id="find_submit" value="find">
+      <div class="table">
+        <p>Название статьи:</p>
+        <input type="text" name="find" id="find_text">
+        <input class="btn" type="submit" id="find_submit" value="find">
+      </div>
     </form>
     {% for article in articles %}
     <div class="_anim_items _anim_no_hide" style="width: 80%; max-width: 700px; overflow: hidden;">
