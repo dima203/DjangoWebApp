@@ -26,10 +26,6 @@ class HomePage(TemplateView):
         return self.render_to_response(context)
 
 
-def home_page(request):
-    return render(request, 'main/home_page.html')
-
-
 def about_page(request):
     return render(request, 'main/about_page.html')
 
