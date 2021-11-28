@@ -2,9 +2,24 @@ from django.shortcuts import render, redirect
 from django.views.generic import DetailView, CreateView, ListView, UpdateView, DeleteView, TemplateView
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.views import LoginView, LogoutView, PasswordChangeView, PasswordResetView,\
+    PasswordChangeDoneView, PasswordResetDoneView, PasswordResetConfirmView, PasswordResetCompleteView
 from django.urls import reverse_lazy
 from .forms import UserRegistrationForm, ArticlesCreateFrom
 from .models import Article
+
+
+login_form = AuthenticationForm
+registration_form = UserRegistrationForm
+extra_context = {'login_form': login_form, 'registration_form': registration_form}
+LoginView.extra_context = extra_context
+LogoutView.extra_context = extra_context
+PasswordChangeView.extra_context = extra_context
+PasswordResetView.extra_context = extra_context
+PasswordChangeDoneView.extra_context = extra_context
+PasswordResetDoneView.extra_context = extra_context
+PasswordResetConfirmView.extra_context = extra_context
+PasswordResetCompleteView.extra_context = extra_context
 
 
 class UserDetailsView(DetailView):
@@ -16,18 +31,12 @@ class UserDetailsView(DetailView):
 
 class HomePage(TemplateView):
     template_name = 'main/home_page.html'
-
-    def get(self, request, *args, **kwargs):
-        login_form = AuthenticationForm
-        registration_form = UserRegistrationForm
-        context = self.get_context_data(**kwargs)
-        context['login_form'] = login_form
-        context['registration_form'] = registration_form
-        return self.render_to_response(context)
+    extra_context = extra_context
 
 
-def about_page(request):
-    return render(request, 'main/about_page.html')
+class AboutPage(TemplateView):
+    template_name = 'main/about_page.html'
+    extra_context = extra_context
 
 
 class ArticlesPage(ListView):
@@ -36,6 +45,9 @@ class ArticlesPage(ListView):
     context_object_name = 'articles'
     paginate_by = 10
     queryset = Article.objects.all()
+    login_form = AuthenticationForm
+    registration_form = UserRegistrationForm
+    extra_context = {'login_form': login_form, 'registration_form': registration_form}
 
     def get_queryset(self):
         find = self.request.GET.get('find')
@@ -44,14 +56,11 @@ class ArticlesPage(ListView):
         return self.model.objects.filter(title__icontains=find)
 
 
-def articles_page(request):
-    return render(request, 'main/articles_page.html')
-
-
 class RegistrationForm(CreateView):
     form_class = UserRegistrationForm
     template_name = 'registration/registration.html'
     success_url = reverse_lazy('home')
+    extra_context = extra_context
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -65,6 +74,7 @@ class ArticleCreateFormView(CreateView):
     form_class = ArticlesCreateFrom
     template_name = 'main/article_creation.html'
     success_url = reverse_lazy('articles')
+    extra_context = extra_context
 
 
 class ArticleDetailsView(DetailView):
@@ -72,6 +82,7 @@ class ArticleDetailsView(DetailView):
     template_name = 'main/article.html'
     pk_url_kwarg = 'article_id'
     context_object_name = 'article'
+    extra_context = extra_context
 
 
 class ArticleUpdate(UpdateView):
@@ -79,6 +90,7 @@ class ArticleUpdate(UpdateView):
     form_class = ArticlesCreateFrom
     template_name = 'main/article_update.html'
     pk_url_kwarg = 'article_id'
+    extra_context = extra_context
 
 
 class ArticleDelete(DeleteView):
@@ -86,3 +98,4 @@ class ArticleDelete(DeleteView):
     template_name = 'main/article_delete.html'
     pk_url_kwarg = 'article_id'
     success_url = reverse_lazy('articles')
+    extra_context = extra_context
