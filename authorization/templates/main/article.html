@@ -24,8 +24,8 @@
 
     {% if user.is_superuser %}
     <div class="buttons">
-        <a class="btn" href="{% url 'article_update' article.id %}">Update article</a>
-        <a class="btn" href="{% url 'article_delete' article.id %}">Delete article</a>
+        <a class="neon_btn" href="{% url 'article_update' article.id %}">Update article</a>
+        <a class="neon_btn" href="{% url 'article_delete' article.id %}">Delete article</a>
     </div>
     {% endif %}
 {% endblock %}
