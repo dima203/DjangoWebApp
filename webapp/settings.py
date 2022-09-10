@@ -37,6 +37,7 @@ CSRF_COOKIE_DOMAIN = 'bluemix.net'
 INSTALLED_APPS = [
     'material',
     'corsheaders',
+    'crispy_forms',
     'authorization.apps.AuthorisationConfig',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -47,6 +48,7 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    '**corsheaders.middleware.CorsMiddleware**',
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',
