@@ -30,6 +30,7 @@ DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 
 ALLOWED_HOSTS = ['floating-escarpment-91953.herokuapp.com', '127.0.0.1', 'localhost']
 CSRF_TRUSTED_ORIGINS = ['https://front.bluemix.net']
+CSRF_COOKIE_DOMAIN = 'bluemix.net'
 
 # Application definition
 
@@ -149,6 +150,13 @@ STATICFILES_DIRS = [
 LOGIN_REDIRECT_URL = '/'
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+CORS_ORIGIN_WHITELIST = (
+    'https://front.bluemix.net/',
+    'front.bluemix.net',
+    'bluemix.net',
+)
+
 
 INTERNAL_IPS = [
     '127.0.0.1',
