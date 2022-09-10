@@ -33,7 +33,7 @@ class ArticlesCreateFrom(forms.ModelForm):
         widgets = {
             'title': TextInput(attrs={'class': 'form-input'}),
             'content': Textarea(attrs={'class': 'form-input'}),
-            'next_article': URLInput(attrs={'class': 'form-input'}),
-            'prev_article': URLInput(attrs={'class': 'form-input'}),
+            'next_article': TextInput(attrs={'class': 'form-input'}),
+            'prev_article': TextInput(attrs={'class': 'form-input'}),
             'author': TextInput(attrs={'class': 'form-input'}),
         }
