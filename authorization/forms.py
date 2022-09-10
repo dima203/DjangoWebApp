@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import TextInput
+from django.forms import TextInput, Textarea, URLInput
 
 from .models import Article
 
@@ -28,10 +28,12 @@ class ArticlesCreateFrom(forms.ModelForm):
 
     class Meta:
         model = Article
-        fields = ['title', 'content', 'author']
+        fields = ['title', 'content', 'author', 'next_article', 'prev_article']
 
         widgets = {
-            'title': forms.TextInput(attrs={'class': 'form-input'}),
-            'content': forms.Textarea(attrs={'class': 'form-input'}),
-            'author': forms.TextInput(attrs={'class': 'form-input'}),
+            'title': TextInput(attrs={'class': 'form-input'}),
+            'content': Textarea(attrs={'class': 'form-input'}),
+            'author': TextInput(attrs={'class': 'form-input'}),
+            'next_article': URLInput(attrs={'class': 'form-input'}),
+            'prev_article': URLInput(attrs={'class': 'form-input'}),
         }

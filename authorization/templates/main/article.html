@@ -14,6 +14,10 @@
     {% autoescape off %}
     <div class="content">
         {{ article.content }}
+        <div class="flex-container flex-justify-space-between half-width-center no-margin">
+            <p><a href="{{ article.prev_article }}">Предыдущая статья</a></p>
+            <p><a href="{{ article.next_article }}">Следующая статья</a></p>
+        </div>
     </div>
     {% endautoescape %}
     <hr size="3" color="#009999">
