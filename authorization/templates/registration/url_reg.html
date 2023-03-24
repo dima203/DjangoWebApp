@@ -1,0 +1,31 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% load material_form %}
+
+{% block links %}
+{% endblock %}
+
+{% block title %}Registration{% endblock %}
+
+{% block content %}
+
+<form method="get" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="table_header"><h3>Registration</h3></div>
+
+    {% if message %}
+        <p class="error">{{ message }}</p>
+    {% endif %}
+
+    <div class="table">
+        <input type="text" name="username">
+        <input type="text" name="email">
+        <input type="text" name="password">
+    </div>
+    <input type="submit" value="reg">
+    <div class="button-box">
+        <button class="btn" type="submit">registration</button>
+    </div>
+</form>
+
+{% endblock %}

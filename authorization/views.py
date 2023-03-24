@@ -102,7 +102,7 @@ class ArticleUpdate(UpdateView):
     extra_context = extra_context
 
     def post(self, request, *args, **kwargs):
-        form = ArticlesCreateFrom(request.POST, request.FILES)
+        form = ArticlesCreateFrom(request.POST, request.FILES, instance=self.get_object())
         if form.is_valid():
             form.save()
             return self.form_valid(form)
@@ -116,3 +116,13 @@ class ArticleDelete(DeleteView):
     pk_url_kwarg = 'article_id'
     success_url = reverse_lazy('articles')
     extra_context = extra_context
+
+
+def url_reg(request):
+    if request.method == 'GET':
+        user = User()
+        user.username = request.GET.get('username')
+        user.email = request.GET.get('email')
+        user.password = request.GET.get('password')
+        user.save()
+    return redirect('/')
