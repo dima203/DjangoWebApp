@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-rru17$!t@r+k-q
 DEBUG = bool(os.environ.get('DJANGO_DEBUG', True))
 # DEBUG = True
 
-ALLOWED_HOSTS = ['floating-escarpment-91953.herokuapp.com', '127.0.0.1', 'localhost']
+ALLOWED_HOSTS = ['floating-escarpment-91953.herokuapp.com', '127.0.0.1', 'localhost', '0.0.0.0']
 CSRF_TRUSTED_ORIGINS = ['https://floating-escarpment-91953.herokuapp.com']
 
 # Application definition
@@ -161,3 +161,6 @@ CACHES = {
         'LOCATION': os.path.join(BASE_DIR, 'webapp_cache'),
     }
 }
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT=os.path.join(BASE_DIR, "media/")

@@ -9,7 +9,7 @@
 
 {% block content %}
   {% if user.is_superuser %}
-    <form method="post" action="{% url 'article_update' article.id %}">
+    <form method="post" action="{% url 'article_update' article.id %}" enctype="multipart/form-data">
       {% csrf_token %}
       <div class="table_header"><h3>Article update</h3></div>
 
@@ -19,6 +19,7 @@
 
         <div class="table">
             {% form %}
+            {% part form.poster prefix %}<i class="material-icons prefix">poster</i>{% endpart %}
             {% part form.title prefix %}<i class="material-icons prefix">title</i>{% endpart %}
             {% part form.content prefix %}<i class="material-icons prefix">edit</i>{% endpart %}
             {% part form.author prefix %}<i class="material-icons prefix">account_circle</i>{% endpart %}

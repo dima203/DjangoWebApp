@@ -1,7 +1,7 @@
 from django.contrib.auth.models import User
 from django import forms
 from django.contrib.auth.forms import UserCreationForm
-from django.forms import TextInput, Textarea, URLInput
+from django.forms import TextInput, Textarea, URLInput, FileInput
 
 from .models import Article
 
@@ -28,9 +28,10 @@ class ArticlesCreateFrom(forms.ModelForm):
 
     class Meta:
         model = Article
-        fields = ['title', 'content', 'author', 'next_article', 'prev_article']
+        fields = ['poster', 'title', 'content', 'author', 'next_article', 'prev_article']
 
         widgets = {
+            'poster': FileInput(attrs={'class': 'form-input'}),
             'title': TextInput(attrs={'class': 'form-input'}),
             'content': Textarea(attrs={'class': 'form-input'}),
             'next_article': TextInput(attrs={'class': 'form-input'}),

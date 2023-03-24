@@ -13,6 +13,7 @@
     <hr size="3" color="#009999">
     {% autoescape off %}
     <div class="content">
+        <img class="banner" src="{% get_media_prefix %}{{ article.poster }}"></img>
         {{ article.content }}
         <div class="flex-container flex-justify-space-between half-width-center no-margin">
             <p><a href="{{ article.prev_article }}">Предыдущая статья</a></p>

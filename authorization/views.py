@@ -77,6 +77,14 @@ class ArticleCreateFormView(CreateView):
     success_url = reverse_lazy('articles')
     extra_context = extra_context
 
+    def post(self, request, *args, **kwargs):
+        form = ArticlesCreateFrom(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
+
 
 class ArticleDetailsView(DetailView):
     model = Article
@@ -92,6 +100,14 @@ class ArticleUpdate(UpdateView):
     template_name = 'main/article_update.html'
     pk_url_kwarg = 'article_id'
     extra_context = extra_context
+
+    def post(self, request, *args, **kwargs):
+        form = ArticlesCreateFrom(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return self.form_valid(form)
+        else:
+            return self.form_invalid(form)
 
 
 class ArticleDelete(DeleteView):

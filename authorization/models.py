@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Article(models.Model):
+    poster = models.ImageField(verbose_name='Баннер', upload_to='images/', default='')
     title = models.CharField(max_length=256, verbose_name='Заголовок')
     content = models.TextField(verbose_name='Текст статьи')
     next_article = models.URLField(verbose_name="Следующая статья", default="#")
