@@ -59,3 +59,13 @@ form input {
 form .help-block {
     color: #CCCCCC;
 }
+
+.input-field .prefix {
+    width: 0rem;
+    left: 15px;
+}
+
+
+.input-field .btn {
+    background-color: unset;
+}
